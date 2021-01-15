@@ -1,0 +1,190 @@
+@charset "utf-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+.row { max-width: 1200px; margin: 0px auto; padding: 0px 10px;}
+body { color: #666; font-family: 'Noto Sans KR', sans-serif; font-size: 14px;}
+
+#header .outer {background: #f3f3f3;}
+#header .outer .login {
+    float: right;
+    font-size: 12px;
+    color: #999;
+}
+#header .outer .login a {
+    display: inline-block;
+    padding: 10px 15px;
+    border-right: 1px solid #ddd;
+}
+#header h1 {float: left; padding: 25px 0px;}
+#nav #depth1 {float: right;}
+#nav #depth1 li {
+    float: left;
+    font-size: 18px;
+    color: #1e1e1e;
+    padding: 35px;
+    font-weight: bold;
+}
+
+
+/* =====section 시작=========================================== */
+
+/* ---article1-------------------- */
+#article1 .slide1 {
+    background: url(../img/main_img3.jpg) no-repeat center;
+    background-size: cover;
+    height: 650px;
+}
+#article1 .text {
+    position: absolute; left: 50%; top: 23%; 
+    transform: translate(-50%);
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+    line-height: 2;
+}
+#article1 .text p:nth-child(1) {
+    font-size: 42px;
+    font-weight: bold;
+    padding-bottom: 15px;
+}
+#article1 .text a {
+    display: inline-block;
+    font-size: 15px;
+    padding: 8px 35px;
+    border: 1px solid #fff;
+    margin-top: 40px;
+}
+
+/* ---article2-------------------- */
+#section h2 { 
+    font-size: 36px; 
+    font-weight: bold; 
+    color: #000;
+    padding-bottom: 15px;
+}
+#article2, #article4 {
+    padding: 80px 0px; 
+    text-align: center;
+}
+#article2 #imgs, #article4 #product {padding-top: 40px;}
+#article2 #imgs .img {
+    float: left; width: 25%;
+    position: relative;
+    height: 520px;
+}
+#article2 #imgs .img:nth-child(1) {
+    background: url(../img/what1.jpg) no-repeat center;
+}
+#article2 #imgs .img:nth-child(2) {
+    background: url(../img/what2.jpg) no-repeat center;
+}
+#article2 #imgs .img:nth-child(3) {
+    background: url(../img/what3.jpg) no-repeat center;
+}
+#article2 #imgs .img:nth-child(4) {
+    background: url(../img/what4.jpg) no-repeat center;
+}
+#article2 #imgs .textbox {
+    position: absolute; bottom: 0%;
+    padding: 0px 30px 30px;
+    text-align: left;
+    color: #fff;
+    line-height: 1.5;
+}
+#article2 #imgs .textbox h3 {
+    font-size: 24px;
+    padding-bottom: 30px;
+    font-weight: bold;
+}
+#article2 #imgs .textbox a {
+    display: inline-block;
+    border: 1px solid #fff;
+    padding: 8px 40px;
+    margin-top: 20px;
+}
+
+/* ---article3-------------------- */
+#article3 #bg {
+    background: url(../img/intro_bg.jpg) no-repeat center 30%;
+    background-size: cover;
+    height: 304px;
+    position: relative;
+}
+#article3 #bg > div {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    text-align: center;
+}
+#article3 #bg > div > p:first-child {
+    font-size: 34px; 
+    font-weight: bold;
+    padding-bottom: 30px;
+}
+#article3 #bg > div > a {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 8px 30px;
+    border: 1px solid #fff;
+    font-size: 13px;
+}
+
+/* ---article4-------------------- */
+#article4 {background: #eee;}
+#article4 #product .pimg {
+    float: left; width: 33.333%;
+    padding: 0px 15px 15px 0px;
+}
+#article4 #product .pimg > div {
+    background: #fff;
+    border: 1px solid #ddd;
+}
+#article4 #product .pimg > div > h4 {
+    font-size: 17px;
+    font-weight: bold;
+    padding: 20px;
+    color: #000;
+}
+#article4 #product .pimg > div > p {
+    padding: 0px 25px 25px;
+}
+
+/* =====footer 시작=========================================== */
+#footer {
+    background: #333;
+    color: #ddd;
+    padding: 30px;
+    text-align: center;
+}
+#footer > .icon {
+    font-size: 17px;
+    color: #fff;
+}
+#footer > .icon > a {
+    padding: 0px 10px;
+}
+#footer > .info {
+    padding: 20px;
+    font-size: 12px; 
+}
+#footer > .info > span {
+    display: inline-block;
+    padding: 0px 20px 5px 0px;
+}
+#footer > .company > a {
+    display: inline-block;
+    padding: 3px 10px;
+    border: 1px solid #ddd;
+    margin-right: 5px;
+}
+
+#top { 
+    background: #000;
+    width: 40px; height: 40px; 
+    font-size: 12px;
+    text-align: center;
+    color: #fff;
+    position: fixed; bottom: 50px; right: 50px;
+    padding: 5px;
+}
+#top span {display: block;}
