@@ -26,28 +26,28 @@ body { color: #666; font-family: 'Noto Sans KR', sans-serif; font-size: 14px;}
     position: relative;
 }
 #nav #depth1 > li:hover > a {
-    color: #7a85c3;
-    border-bottom: 2px solid #7a85c3;;
+    color: #00529b;
 }
-#nav #depth1:hover > li> .depth2 {
+#nav #depth1> li:hover > .depth2 {
     display: block;
+
 } 
-#nav > #depth1 > li:hover > .depth2
-    {background:#fff; width: 136px;
-    color: #7a85c3;}
 #nav .depth2 {
     position: absolute; top: 100%; left: 0%;
-    background: rgba(0, 0, 0, 0.5);
+    background:#555;
     width: 100%; z-index: 999;
-    text-align: center; color: #ddd;
-    font-size: 14px; 
+    text-align: center; color: #fff;
+    font-size: 14px;
     display: none;
-    padding: 20px 0px;
 }
-.depth2 > li
-    {line-height: 3;}
-.depth2 > li:hover > a {
-    color: navy;
+.depth2 a {
+    display: block;
+    line-height: 2.5;
+    border-bottom: 1px solid #666; 
+}
+#nav .depth2 li:hover > a {
+    background: #00529b;
+    color: #dfe9fe;
 }
 
 
