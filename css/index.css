@@ -88,18 +88,18 @@ body { color: #666; font-family: 'Noto Sans KR', sans-serif; font-size: 15px;}
     color: #fff;
     text-align: center;
 }
-#section #article1 .text h2 {
+#section #article1 .text > h2 {
     font-size: 42px;
     font-weight: bold;
 }
-#section #article1 .text p {
+#section #article1 .text > p {
     font-size: 16px;
     line-height: 24px;
     font-weight: 400;
     margin: 30px 0;
 }
 
-#article1 .text a {
+#article1 .text > a {
     display: inline-block;
     font-size: 15px;
     padding: 8px 35px;
