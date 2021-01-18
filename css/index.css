@@ -1,8 +1,8 @@
 @charset "utf-8";
-
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
 .row { max-width: 1200px; margin: 0px auto; padding: 0px 10px;}
-body { color: #666; font-family: 'Noto Sans KR', sans-serif; font-size: 14px;}
+body { color: #666; font-family: 'Noto Sans KR', sans-serif; font-size: 15px;}
+
 
 #header .outer {background: #f3f3f3;}
 #header .outer .login {
@@ -13,16 +13,22 @@ body { color: #666; font-family: 'Noto Sans KR', sans-serif; font-size: 14px;}
 #header .outer .login a {
     display: inline-block;
     padding: 10px 15px;
-    border-right: 1px solid #ddd;
+    border-right: 1px solid #e3e3e3;
 }
-#header h1 {float: left; padding: 25px 0px;}
-#nav #depth1 {float: right;}
+#header .outer .login a:first-child {
+    border-left: 1px solid #e3e3e3;
+}
+#header .outer .login a:hover {
+    color: #dbb075;
+}
+#header > .row {position: relative; z-index: 999;}
+#header h1 {padding: 25px 0px;}
+#nav {position: absolute; top: 50%; right: 0; transform: translateY(-50%);}
 #nav #depth1 > li {
     float: left;
     font-size: 18px;
     color: #1e1e1e;
-    padding: 35px;
-    font-weight: bold;
+    padding: 20px 40px; 
     position: relative;
 }
 #nav #depth1 > li:hover > a {
@@ -35,15 +41,15 @@ body { color: #666; font-family: 'Noto Sans KR', sans-serif; font-size: 14px;}
 #nav .depth2 {
     position: absolute; top: 100%; left: 0%;
     background:#555;
-    width: 100%; z-index: 999;
+    z-index: 999; width: 100%;
     text-align: center; color: #fff;
     font-size: 14px;
     display: none;
 }
 .depth2 a {
-    display: block;
-    line-height: 2.5;
-    border-bottom: 1px solid #666; 
+    display: block; width: 100%;
+    padding: 18px 0px;
+    border-bottom: 1px solid #999; 
 }
 #nav .depth2 li:hover > a {
     background: #00529b;
@@ -56,10 +62,24 @@ body { color: #666; font-family: 'Noto Sans KR', sans-serif; font-size: 14px;}
 
 /* ---article1-------------------- */
 #article1 .slide1 {
+    background: url(../img/main_img1.jpg) no-repeat center;
+    background-size: cover;
+    height: 650px;
+    position: relative;
+}
+#article1 .slide2 {
+    background: url(../img/main_img2.jpg) no-repeat center;
+    background-size: cover;
+    height: 650px;
+    position: relative;
+    display: none;
+}
+#article1 .slide3 {
     background: url(../img/main_img3.jpg) no-repeat center;
     background-size: cover;
     height: 650px;
     position: relative;
+    display: none;
 }
 #article1 .text {
     position: absolute; left: 50%; top: 18%; 
@@ -67,28 +87,30 @@ body { color: #666; font-family: 'Noto Sans KR', sans-serif; font-size: 14px;}
     font-size: 16px;
     color: #fff;
     text-align: center;
-    line-height: 2;
 }
-#article1 .text p:nth-child(1) {
+#section #article1 .text h2 {
     font-size: 42px;
     font-weight: bold;
-    padding-bottom: 15px;
 }
+#section #article1 .text p {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    margin: 30px 0;
+}
+
 #article1 .text a {
     display: inline-block;
     font-size: 15px;
     padding: 8px 35px;
     border: 1px solid #fff;
-    margin-top: 40px;
 }
 #article1 .text a:hover {
-    background: #fff;
-    color: #161e36;
-    font-weight: bold;
-}
+    background: rgba(255, 255, 255, 0.3);
 
+}
 /* ---article2-------------------- */
-#section h2 { 
+#article2 h2, #article4 h2  { 
     font-size: 36px; 
     font-weight: bold; 
     color: #000;
@@ -117,8 +139,7 @@ body { color: #666; font-family: 'Noto Sans KR', sans-serif; font-size: 14px;}
     background: url(../img/what4.jpg) no-repeat center;
 }
 #article2 #imgs .textbox {
-    position: absolute; bottom: 0%;
-    padding: 0px 30px 30px;
+    position: absolute; bottom: 25px; left: 25px; right: 25px;
     text-align: left;
     color: #fff;
     line-height: 1.5;
@@ -135,15 +156,14 @@ body { color: #666; font-family: 'Noto Sans KR', sans-serif; font-size: 14px;}
     margin-top: 20px;
 }
 #article2 .textbox a:hover {
-    background: #fff;
-    color: #161e36; 
-    font-weight: bold;
+    background: rgba(255, 255, 255, 0.3);
 }
 
 /* ---article3-------------------- */
 #article3 #bg {
-    background: url(../img/intro_bg.jpg) no-repeat center 30%;
-    background-size: cover;
+    background: url(../img/intro_bg.jpg) no-repeat center top;
+    background-size: auto; 
+    background-attachment: fixed;
     height: 304px;
     position: relative;
 }
@@ -166,37 +186,33 @@ body { color: #666; font-family: 'Noto Sans KR', sans-serif; font-size: 14px;}
     font-size: 13px;
 }
 #article3 #bg > div > a:hover {
-    background: #fff;
-    color: #161e36; 
-    font-weight: bold;
+    background: rgba(255, 255, 255, 0.3);
 }
 /* ---article4-------------------- */
-#article4 {background: #eee;}
+
 #article4 #product .pimg {
-    float: left; width: 33.333%;
-    padding: 0px 15px 15px 0px;
+    float: left; width: 32%;
+    margin-right: 2%;
+    border: 1px solid #999;
+    margin-bottom: 20px;
 }
-#article4 #product .pimg div {
-    background: #fff;
-    border: 1px solid #ddd;
-}
+#article4 #product .pimg:nth-child(3n) {margin-right: 0;}
 #article4 #product .pimg div h4 {
     font-size: 17px;
     font-weight: bold;
-    padding: 20px;
-    color: #000;
+    margin: 25px;
 }
 #article4 #product .pimg div p {
-    padding: 0px 25px 25px;
+    font-size: 14px;
+    margin: 25px;
+    line-height: 1.5;
 }
-#article4 #product .pimg:hover > a > div {
-    background: rgba(0, 0, 0, 0.7);
-    color: #fff;
-    border: 1px solid #555;
+#article4 .pimg img {transition: 0.5s;}
+#article4 .pimg img:hover {
+    opacity: 0.6;
 }
-#article4 #product .pimg:hover > a > div > h4 {
-    color: #fff;
-}
+
+
 
 /* =====footer 시작=========================================== */
 #footer {
@@ -206,21 +222,27 @@ body { color: #666; font-family: 'Noto Sans KR', sans-serif; font-size: 14px;}
     text-align: center;
 }
 #footer > .icon {
-    font-size: 17px;
+    font-size: 14px;
     color: #fff;
 }
 #footer > .icon > a {
     padding: 0px 10px;
+    display: inline-block;
+    width: 32px; height: 32px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+    line-height: 32px;
+    transition: all 0.3s;
 }
 #footer > .icon > a:hover {
-    color: #7a85c3;
+    background: rgba(255, 255, 255, 0.3);
 }
 
 #footer > .info {
     padding: 20px;
     font-size: 12px; 
 }
-#footer > .info > span {
+#footer > .info  span {
     display: inline-block;
     padding: 0px 20px 5px 0px;
 }
@@ -230,10 +252,12 @@ body { color: #666; font-family: 'Noto Sans KR', sans-serif; font-size: 14px;}
     padding: 3px 10px;
     border: 1px solid #ddd;
     margin-right: 5px;
+    transition: all 0.4s;
 }
 #footer > .company> a:hover {
-    background: #fff;
-    color: #333;
+    background: #999;
+    border: 1px solid #999;
+    color: #FFF;
 }
 
 #top { 
