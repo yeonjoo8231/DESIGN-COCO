@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
     <link rel="stylesheet" href="css/slick.css">
     <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/rwdindex.css">
+    <title>디자인코코</title>
     <script src="js/jquery-3.5.1.min.js"></script>
     <script src="js/slick.min.js"></script>
-    <title>디자인코코</title>
 </head>
 
 <body>
@@ -25,6 +26,12 @@
             </div>
             <div class="row">
                 <h1><a href="/index.html"><img src="img/logo.png" alt="디자인코코"></a></h1>
+                <div class="open">
+                    <span class="blind">메뉴열기</span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
                 <nav id="nav">
                     <ul class="depth1 cf">
                         <li>
@@ -102,6 +109,7 @@
                         </div>
                     </div>
                 </div>
+                <button type="button" class="plpa"><i class="fas fa-pause"></i></button>
             </article>
             <article class="article2 row">
                     <h2>What We Do</h2>
@@ -323,16 +331,8 @@
         </footer>
     </div>
 
-    <script>
-        $(".slide-group").slick({
-            autoplay: true, // 자동재생
-            autoplaySpeed: 3000, // 간격시간
-            dots: true, // 동그라미버튼
-            pauseOnFocus: false, // 동그라미번호버튼 클릭시 자동실행 멈춤여부
-            prevArrow: '<button class="prev"><i class="fas fa-angle-left"></i></button>',
-            nextArrow: '<button class="next"><i class="fas fa-angle-right"></i></button>',
-        })
-    </script>
+    <script src="./js/index.js"></script>
+
 </body>
 
 </html>

@@ -13,23 +13,36 @@ body{font-family: 'Noto Sans KR', sans-serif; color:#666; font-size:15px }
    2. 둘 중에 높이가 낮은 자식을 position:absolute 정렬 : 부모한테 position:relative */
 #header > .row { position:relative; }
 #header h1 { /* float:left;  */ padding:25px 0 }
+#header .open {display: none;}
+
 #header #nav {  /* float:right; */ z-index:99999;
     position:absolute; top:50%; transform:translateY(-50%);
     right:0; font-size:18px; color:#1e1e1e; /* background:red; */ }
 #header #nav .depth1 > li { float:left; position:relative; }
 #header #nav .depth1 > li > a { padding:20px 40px; display:inline-block; }
-#header #nav .depth1 > li:hover > a { color: #00529b; }
+#header #nav .depth1 > li.on > a { color: #00529b; }
 #header .depth2 { position:absolute; top:100%; left:0; 
     background:#555; font-size:14px;
     color:#fff; width:100%; text-align:center; 
     display:none; }
-#header #nav .depth1 > li:hover .depth2 { display:block; }
+#header #nav .depth1 > li.on .depth2 { display:block; }
 #header .depth2 > li > a { padding:18px 0; display:block; 
     border-bottom:1px solid #999; }
 #header .depth2 > li:last-child > a { border-bottom:none }
 #header .depth2 > li:hover > a { background:#00529b; color:#dfe9fe }
 
+
+
+
+
+
+.article1 {position: relative;}
 .article1 .slide-group { position: relative; }
+.article1 .plpa {
+    position: absolute; bottom: 14px; left: 50%; 
+    margin-left: 165px; color: #fff;
+    border: none; background: none; font-size: 20px;
+} 
 .article1 .slide-group .slick-arrow {
     position: absolute; top: 50%; transform: translateY(-50%);
     background: none; border: none; z-index: 999;
@@ -39,19 +52,20 @@ body{font-family: 'Noto Sans KR', sans-serif; color:#666; font-size:15px }
 .article1 .slide-group .next { right: 50px; }
 
 .article1 .slide-group .slick-dots {
-    position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
+    position: absolute; bottom: 20px; width: 100%; text-align: center;
 }
 .article1 .slide-group .slick-dots li {
-    display: inline-block; margin: 0 5px;
+    display: inline-block; margin: 0 3px;
 }
 .article1 .slide-group .slick-dots li button {
-    width: 15px; height: 15px;
-    border: none; border-radius: 50%;
+    width: 100px; height: 5px;
+    border: none;
     background: rgba(255,255,255,0.5); 
     color: transparent;
+    vertical-align: middle;
 }
 .article1 .slide-group .slick-dots li.slick-active button {
-    background: #ed5c20;
+    background: rgba(255,255,255,0.5); border: 1.5px solid #ed5c20;
 }
 
 .article1 .slide1 { height:650px;
@@ -67,6 +81,14 @@ body{font-family: 'Noto Sans KR', sans-serif; color:#666; font-size:15px }
      }
 .article1 .slide_text { position:absolute; top:35%;left:50%;
     transform:translate(-50%, -50%); color:#fff; text-align:center;} 
+
+.article1 .slide.slick-cloned .slide_text {opacity: 0;} 
+/* 첫슬라이드 페이지에서 글씨가 보였다가 애니매이션이 생기는걸 막는 명령어 
+    슬라이드 플러그인에서 복사본이 생겼다가 들어오는 형태였어서 그 복사본의 오퍼시티를 0을 주면 해결
+*/
+
+
+
 #section .article1 .slide_text h2 { font-size: 42px;line-height: 50px;
     font-weight: 800; color: #fff;}
 #section .article1 .slide.slick-active .slide_text h2 {
