@@ -3,24 +3,52 @@
 
 body{font-family: 'Noto Sans KR', sans-serif; color:#666; font-size:15px }
 .row{max-width: 1200px; margin:0 auto; padding:0 10px }
+
+
+/* #header { position:relative } */
+#header.on .top_menu {display: none;}
+#header.on {
+    position: fixed; width: 100%; background: #fff;
+    top: 0; left: 0; z-index: 99;
+}
 #header .top_menu { background:#f3f3f3; color:#999; font-size:12px; text-align:right; }
 #header .top_menu a { padding:7px 20px; display:inline-block; border-right:1px solid #e3e3e3; }
-#header .top_menu a:first-child { border-left:1px solid #e3e3e3; }
+#header .top_menu a:nth-of-type(1) { border-left:1px solid #e3e3e3; }
 #header .top_menu a:hover { color: #dbb075; }
+/* 검색창 */
+#header .search {
+    position:absolute; 
+    right:320px;
+    top:50%; 
+    transform:translateY(-50%)
+}
+#header .search #sbox { border:none; text-indent:1em; width:0;  
+    overflow:hidden; transition:all 0.5s;
+    outline:none;
+}
+#header .search #sbox.on {
+    width:169px;
+}
 
 /* 블록요소들을 한줄로 정렬하는 방법 : 
    1. 둘다 float정렬 : 부모한테 .cf나 overflow:hidden
    2. 둘 중에 높이가 낮은 자식을 position:absolute 정렬 : 부모한테 position:relative */
-#header > .row { position:relative; }
+#header .row { position:relative;}
+/* #header .fix { transition: all 1s;}
+#header .fix.on { 
+    position:fixed; width: 100%; top: 0;
+    z-index: 999; background: rgba(255,255,255,0.9);
+    border-bottom: 1px solid #eee;
+} */
 #header h1 { /* float:left;  */ padding:25px 0 }
-#header .open {display: none;}
-
+#header .open,
+#header .close { display:none }
 #header #nav {  /* float:right; */ z-index:99999;
     position:absolute; top:50%; transform:translateY(-50%);
     right:0; font-size:18px; color:#1e1e1e; /* background:red; */ }
 #header #nav .depth1 > li { float:left; position:relative; }
 #header #nav .depth1 > li > a { padding:20px 40px; display:inline-block; }
-#header #nav .depth1 > li.on > a { color: #00529b; }
+#header #nav .depth1 > li:hover > a { color: #00529b; }
 #header .depth2 { position:absolute; top:100%; left:0; 
     background:#555; font-size:14px;
     color:#fff; width:100%; text-align:center; 
@@ -34,39 +62,36 @@ body{font-family: 'Noto Sans KR', sans-serif; color:#666; font-size:15px }
 
 
 
-
-
-.article1 {position: relative;}
-.article1 .slide-group { position: relative; }
+.article1 { position:relative }
+.article1 .slide-group { position:relative }
 .article1 .plpa {
-    position: absolute; bottom: 14px; left: 50%; 
-    margin-left: 165px; color: #fff;
-    border: none; background: none; font-size: 20px;
-} 
+    position:absolute; bottom:44px; left:50%; 
+    /* margin-left:180px;  */
+    transform:translate(180px);
+    color:#fff; border:none;
+    background:none; font-size:20px;
+}
 .article1 .slide-group .slick-arrow {
-    position: absolute; top: 50%; transform: translateY(-50%);
-    background: none; border: none; z-index: 999;
-    color: rgba(255,255,255,0.5); font-size: 80px;
- }
-.article1 .slide-group .prev { left: 50px; }
-.article1 .slide-group .next { right: 50px; }
-
+    position:absolute; top:50%; transform:translateY(-50%);
+    background:none; border:none;
+    color:#fff; font-size:70px;
+}
+.article1 .slide-group .prev { left:50px; z-index:9999; }
+.article1 .slide-group .next { right:50px; }
 .article1 .slide-group .slick-dots {
-    position: absolute; bottom: 20px; width: 100%; text-align: center;
+    position:absolute; bottom:50px; width:100%; text-align:center;
 }
 .article1 .slide-group .slick-dots li {
-    display: inline-block; margin: 0 3px;
+    display:inline-block; margin:0 5px
 }
 .article1 .slide-group .slick-dots li button {
-    width: 100px; height: 5px;
-    border: none;
-    background: rgba(255,255,255,0.5); 
-    color: transparent;
-    vertical-align: middle;
+    width:100px; height:10px; background:#fff;
+    border:none; color:transparent; vertical-align:middle;
 }
 .article1 .slide-group .slick-dots li.slick-active button {
-    background: rgba(255,255,255,0.5); border: 1.5px solid #ed5c20;
+    border:2px solid #fff; background:none
 }
+
 
 .article1 .slide1 { height:650px;
     background:url(../img/main_img1.jpg) no-repeat center;
@@ -79,75 +104,71 @@ body{font-family: 'Noto Sans KR', sans-serif; color:#666; font-size:15px }
     background:url(../img/main_img3.jpg) no-repeat center;
     background-size:cover;  position:relative;
      }
-.article1 .slide_text { position:absolute; top:35%;left:50%;
-    transform:translate(-50%, -50%); color:#fff; text-align:center;} 
+.article1 .slide_text { position:absolute; top:35%;left:10px; right: 10px;
+    transform:translateY(-50%); color:#fff; text-align:center;
+    word-break: keep-all; overflow: hidden; text-overflow: ellipsis;
+} 
+.article1 .slide.slick-cloned .slide_text { opacity:0 } 
 
-.article1 .slide.slick-cloned .slide_text {opacity: 0;} 
-/* 첫슬라이드 페이지에서 글씨가 보였다가 애니매이션이 생기는걸 막는 명령어 
-    슬라이드 플러그인에서 복사본이 생겼다가 들어오는 형태였어서 그 복사본의 오퍼시티를 0을 주면 해결
-*/
-
-
-
-#section .article1 .slide_text h2 { font-size: 42px;line-height: 50px;
-    font-weight: 800; color: #fff;}
-#section .article1 .slide.slick-active .slide_text h2 {
-    animation: backInDown 0.8s both 0.6s;
-}
-
+.article1 .slide_text h2 { font-size: 42px;line-height: 50px;
+    font-weight: 800; }
+.article1 .slide.slick-active .slide_text h2 { 
+    animation:fadeInDown 0.5s both 0.3s;
+ }
 .article1 .slide_text p {font-size: 16px;line-height: 24px;
     font-weight: 400;margin:30px 0; }
 .article1 .slide.slick-active .slide_text p {
-    animation: bounceInRight 0.5s both 1.4s;
-}
-
+    animation:fadeInRight 0.5s both 0.8s;
+}    
 .article1 .slide_text a { display: inline-block; padding: 10px 35px;
     border: 1px solid #FFF; font-size: 15px; font-weight: 400;}
-.article1 .slide.slick-active .slide_text a {
-    animation: heartBeat 0.8s both 1.9s;
+.article1 .slide.slick-active .slide_text a { 
+    animation:zoomIn 0.5s both 0.3s;
 }
-
 /* a버튼에 호버하면 배경색 background: rgba(255,255,255,0.3); */
 .article1 .slide_text a:hover {background: rgba(255,255,255,0.3);}
 
 
 
+
 #section h2 { color: #000; font-size: 36px; line-height: 42px; font-weight: 700;
     padding:80px 0 10px; text-align:center; }
-.article2 > p, .article4 > p  { padding-bottom: 40px; text-align:center; }
+.article2 > p, .article4 > p  { 
+    padding-bottom: 40px; text-align:center;
+    line-height: 1.5;
+    word-break: keep-all;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 .article2 li { height:520px; float:left; width:24%; margin-right:1.3333%; color:#fff;
-    position:relative; }
-.article2 li:nth-child(1) { background:url(../img/what1.jpg) no-repeat center;
-    background-size:cover; }
-.article2 li:nth-child(2) { background:url(../img/what2.jpg) no-repeat center;
-    background-size:cover; }
-.article2 li:nth-child(3) { background:url(../img/what3.jpg) no-repeat center;
-    background-size:cover; }
-.article2 li:nth-child(4) { background:url(../img/what4.jpg) no-repeat center;
-    background-size:cover; margin-right:0; }
-.article2 li > div { position:absolute; bottom:25px; left:25px; right:25px; transition: all 0.5s;}
+    position:relative; 
+    background-size:cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.article2 li::before { content:'';
+    position:absolute; top:0; bottom:0; right:0; left:0;
+    background:rgba(0,0,0,0.5); opacity:0; transition:all 0.4s
+}   
+.article2 li:hover::before {  opacity:1; }    
+.article2 li:nth-child(1) { background-image:url(../img/what1.jpg) ;
+}
+.article2 li:nth-child(2) { background-image:url(../img/what2.jpg);
+}
+.article2 li:nth-child(3) { background-image:url(../img/what3.jpg);
+}
+.article2 li:nth-child(4) { background-image:url(../img/what4.jpg);
+margin-right:0; }
+.article2 li > div { position:absolute; bottom:25px; left:25px; 
+    right:25px; transition:all 0.4s }
+.article2 li:hover > div { bottom:100px;  }
+
 .article2 li > div > h3 { font-size: 24px; line-height: 32px; font-weight: 500; }
 .article2 li > div > p { padding: 20px 0; line-height:1.5; font-size:14px; }
 .article2 li > div > a {  display: inline-block; padding: 10px 40px;
     border: 1px solid rgba(255,255,255,0.5); font-size: 11px; font-weight: 600 !important;
-    transition: all 0.3s;
 }
 .article2 li > div > a:hover {background: rgba(255,255,255,0.3);}
-
-.article2 li::before {
-    content: '';  position: absolute;
-    background: rgba(0, 0, 0, 0.8); 
-    top: 0; left: 0; bottom: 0; right: 0; 
-    opacity: 0; transition: all 0.5s;
-}
-.article2 li:hover::before {
-    opacity: 1;
-}
-.article2 li:hover > div {
-    bottom: 170px;
-}
-
-
 
 .article3 { height:304px;
     background:url(../img/intro_bg.jpg) no-repeat center top;
@@ -176,111 +197,87 @@ body{font-family: 'Noto Sans KR', sans-serif; color:#666; font-size:15px }
 /* margin값이 상하로 만나면 둘 중에 큰 값 하나만 적용 */
 .article4 li h4 { font-size:17px; margin:25px; font-weight:bold }
 .article4 li p { font-size:14px; margin:25px; line-height:1.5 }
-.article4 li > div { overflow: hidden; position: relative; }
-
+.article4 li > div { overflow:hidden; position:relative; }
 .article4 li > div::before {
-    content: ''; position: absolute;
-    background: rgba(0, 0, 0, 0.5);
-    top: 0; left: 0; right: 0; bottom: 0;
-    opacity: 0; transition: all 0.4s;
-}
-.article4 li > div:hover::before {
-    opacity: 1; z-index: 9;
-}
-.article4 li .zoom {
-    position: absolute; top: 50%; left: 50%; 
-    transform: translate(-50%, -50%);
-    font-size: 30px; color: #fff; 
-    opacity: 0; transition: all 0.4s 0.2s;
-}
-.article4 li > div:hover .zoom {opacity: 1; z-index: 10;}
+    content:''; position:absolute; top:0; left:0; 
+    bottom:0; right:0; background:rgba(0,0,0,0.5);
+    opacity:0; transition:all 0.4s; }
+.article4 li > div:hover::before { opacity:1; z-index:9 }
+.article4 li .zoom { position:absolute; top:50%;
+left:50%; transform:translate(-50%, -50%); 
+font-size:30px; color:#fff; opacity:0; transition:all 0.4s 0.2s; }
+.article4 li > div:hover .zoom { opacity:1;  z-index:10 }
 .article4 li img {  transition:all 0.5s; }
-.article4 li > div:hover > img{ 
-    transform: scale(1.2);
-}
+/* 호버시 ::before나 ::after 박스가 중간에 생기면 
+마우스가 이미지를 가리킬 수 없으므로, 부모한테 호버했을때
+이미지 스케일이 커지도록 함 */
+.article4 li > div:hover > img { transform:scale(1.2) }
 
 
 /* article5 구역 */
-
-
-
-
 .article5 { padding:30px 0; margin-top:50px; border-top:1px solid #ddd }
 .article5 .row { overflow:hidden }
 .article5 .row > div { width:33.33%; float:left; }
 .article5 .row > div.cs_board { padding-right:30px; }
-.cs_board .tabmenu { overflow: hidden; border-bottom: 1px solid #ddd;}
-.cs_board .tabmenu li { 
-    float: left;
-    border: 1px solid #ddd; border-bottom: none;
-    padding: 10px 20px;
+.cs_board .tabmenu { overflow:hidden; border-bottom:1px solid #ddd }
+.cs_board .tabmenu li { float:left; 
+    border:1px solid #ddd; border-bottom:none;
+    padding:10px 20px; cursor:pointer;
 }
 .cs_board .tabmenu li.active {
-    background: #ddd; color: orangered;
+    background:#ddd; color:orangered;
 }
-.cs_board .contents {position: relative;}
-.cs_board .contents > div { display: none;}
-.cs_board .contents > div.active { display: block;}
-
-.cs_board .contents table { font-size: 14px; }
-.cs_board .contents col:nth-child(1) { width: auto; }
-.cs_board .contents col:nth-child(2) { width: 100px; }
-.cs_board .contents td { 
-    border-bottom: 1px solid #ddd; 
-    padding: 9px 5px;
-}
+.cs_board .contents > div { display:none }
+.cs_board .contents > div.active { display:block }
+.cs_board .contents table { font-size:14px;  }
+.cs_board .contents col:nth-child(1) { width:auto }
+.cs_board .contents col:nth-child(2) { width:100px }
+.cs_board .contents td { border-bottom:1px solid #ddd;
+    padding:9px 5px; }
 .cs_board .contents td:nth-child(1) {
-    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-}
-.cs_board .contents td:nth-child(2) {
-    text-align: right;
-}
+    white-space:nowrap; overflow:hidden;
+    text-overflow: ellipsis; }
+.cs_board .contents td:nth-child(2) {  text-align:right } 
+.cs_board .contents { position:relative }
 .cs_board .contents .more {
-    position: absolute; bottom: 100%; right: 0;
-    padding: 5px; background: #ddd; margin-bottom: 5px;
-    border-radius: 3px;
+    position:absolute; bottom:100%; right:0; 
+    padding:5px; background:#ddd; margin-bottom:5px;
+    border-radius:3px; 
 }
 
 
-
-
-.article5 .row > div.cs_center { 
-    border-left:1px solid #ddd;
-    border-right:1px solid #ddd;
-    padding:0 30px;
-}
+.article5 .row > div.cs_center { border-left:1px solid #ddd;
+    border-right:1px solid #ddd; padding:0 30px; }
 .article5 .row > div.cs_center h4 {color:#000; font-size:20px; line-height:28px; padding-bottom:15px; font-weight:500;}
-.article5 .cs_center li {font-size:13px; line-height:20px; padding-left:10px; margin:2px 0; text-indent:0px; padding-left:10px; position: relative;}
-.article5 .cs_center li::before {content:""; width:3px; height:3px; background:#666; border-radius:50px; position: absolute; top: 50%; left: 0; transform: translateY(-50%);}
+.article5 .cs_center li {font-size:13px; line-height:20px; padding-left:10px; margin:2px 0; text-indent:0px; position:relative; }
+.article5 .cs_center li::before {content:""; width:3px; height:3px; background:#666; border-radius:50%; position:absolute; left:0; top:50%; transform:translateY(-50%)}
 .article5 .cs_center li a {text-indent:0px;}
-.article5 .cs_center li.tel_num {color:#ed5c20; font-size:30px; line-height:36px; font-weight:700; font-family:'Montserrat',sans-serif; padding-bottom:10px; padding-left: 0px;}
-.article5 .cs_center li.tel_num i {transform: rotateY(180deg) scale(0.8); }
-.article5 .cs_center li.cs-btn::before,
+.article5 .cs_center li.tel_num {color:#ed5c20; font-size:30px; line-height:36px; font-weight:700; font-family:'Montserrat',sans-serif; padding-bottom:10px; padding-left:0px }
+.article5 .cs_center li.cs-btn::before, 
 .article5 .cs_center li.tel_num::before {display:none;}
 .article5 .cs_center li.cs-btn {padding-top:20px !important; padding:0; text-indent:0; margin:0; font-size:0; text-align:center;}
 .article5 .cs_center li.cs-btn a {
-    display: inline-block;
-    width: 46%;
-    margin: 1%;
-    border-radius: 3px;
-    padding: 10px;
-    font-size: 14px;
-    text-align: center;
-    color: #FFF;
-}
-.article5 .cs_center li.cs-btn a.cs-btn {background: #787878;}
-.article5 .cs_center li.cs-btn a.cs-btn2 {background: #001f60;}
+    display: inline-block; width: 46%; margin: 1%;
+    border-radius: 3px; padding: 10px; font-size: 14px;
+    text-align: center; color: #FFF; }
+.article5 .cs_center li.cs-btn a.cs-btn {
+    background: #787878; }
+.article5 .cs_center li.cs-btn a.cs-btn2 {
+    background: #001f60; }
+.article5 .cs_center li.tel_num i {
+    transform:rotateY(180deg) scale(0.7); }
 
 
-
-.article5 .row div.cs_movie { padding-left:30px;}
-.article5 .cs_movie .tubewrap {
-    width: 100%; padding-top: 56.25%;
-    position: relative;
+.article5 .row div.cs_movie { padding-left:30px; }
+/* 유튜브 동영상 스타일 공식 */
+/* .article5 .cs_movie .tubewrap {
+    width:100%; padding-top:56.25%; 
+    position:relative; 
 }
 .article5 .cs_movie .tubewrap iframe {
-    position: absolute; top: 0; left: 0;
-}
+    position:absolute; top:0; left:0;
+} */
+
 
 
 

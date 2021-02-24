@@ -1,69 +1,158 @@
 @media screen and (max-width:1024px) {
 
-    #header .open {
-        display: block;
-        position: absolute; top: 50%; right: 40px;
-        transform: translateY(-50%);
-        width: 24px; height: 24px;
-    }
-    
-    #header .open > span:nth-child(2),
-    #header .open > span:nth-child(3),
-    #header .open > span:nth-child(4) {
-        position: absolute; 
-        width: 100%;
-        height: 3px;
-        background: #001f60;
-    }
-    #header .open > span:nth-child(2) {
-        top: 0; transition: all 0.5s;
-    }
-    #header .open.on > span:nth-child(2) {
-        top: 50%; transform: translateY(-50%);
-        transform: rotate(45deg);
-    }
-    #header .open > span:nth-child(3) {
-        top: 50%; transform: translateY(-50%);
-        opacity: 1;
-    }
-    #header .open.on > span:nth-child(3) {
-        top: 50%; transform: translateY(-50%);
-        opacity: 0;
-    }
-    #header .open > span:nth-child(4) {
-        bottom: 0; transition: all 0.5s;
-    }
-    #header .open.on > span:nth-child(4) {
-        bottom: 39%; transform: rotate(-45deg);
-        
+
+    #header h1 img {
+        width: 200px;
     }
 
-    #header #nav { 
-         /* float:right; */ z-index:99999;
-        position:absolute; top:100%; transform:translateY(0%);
-        right:0; font-size:18px; color:#1e1e1e; /* background:red; */ 
-        background: #fff;
-        width: 160px; display: none;
+    /* 검색창 */
+    #header .search {
+        position:absolute; 
+        right:60px;
+        top:63px; 
+        transform:translateY(0%);
+        font-size:24px; z-index:999999;
     }
-    #header #nav.on {display: block;}
+    #header .search #sbox { border:none; text-indent:1em; width:0;  
+        overflow:hidden; transition:all 0.5s;
+        outline:none;  background:#ddd; padding:8px 0px;
+    }
+    #header .search #sbox.on {
+        width:200px; 
+    }
+
+
+    #header .open,
+    #header .close { 
+        position:absolute; top:50%; right:20px; 
+        transform:translateY(-50%);
+        font-size:25px; 
+    }
+    #header .open.on { display:block;  }
+    #header .close.on { display:block; }
+
+    #header h1 { /* float:left;  */ padding:25px 0 }
+
+    #header #nav {  /* float:right; */ z-index:99999;
+    position:absolute; top:100%; transform:translateY(0%);
+    right:0; font-size:18px; color:#1e1e1e; background:#fff; 
+    display:none }
+    #header #nav.on { display:block }
+
     #header #nav .depth1 > li { float:none; position:relative; }
-    #header #nav .depth1 > li > a { 
-        padding:20px 20px; display:inline-block; 
-    }
-    #header .depth2 { 
-        position:static; top:100%; left:0; 
+
+    #header .depth2 { position:static; top:100%; left:0; 
         background:#555; font-size:14px;
-        color:#fff; width:100%; text-align:left; 
-        display:none;
+        color:#fff; width:100%; text-align:center; 
+        display:none; }
+
+
+
+    /* .article2구역 */
+    .article2 li { 
+        height:520px; float:left; width:49%; 
+        margin-right:2%; margin-top: 2%;
+        color:#fff;
+        position:relative; }
+    .article2 li:nth-child(2) { 
+        background:url(../img/what2.jpg) no-repeat center;
+        background-size:cover; 
+        margin-right:0%;
     }
-    #header .depth2 > li > a { 
-        padding:18px 15px; display:inline-block; 
-        width: 100%;
-        border-bottom:1px solid #999; }
 
 
+    /* article3 */
+    .article3 {position: relative;}
+    .article3 .row {
+        max-width: 1200px; margin: 0 auto; padding: 0 10px;
+        position: absolute; top: 50%; 
+        transform: translateY(-50%);
+        left: 0; right: 0; text-align: center;
+    }
+    #section .article3 h2 { 
+        color: #000; font-size: 30px; line-height: 42px; 
+        font-weight: 700;
+        padding:0px 0 10px; text-align:center; 
+        word-break: keep-all; 
+        /* 단어잘림 허용안함 */
+        /* word-wrap: normal; 영어*/
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .article3 p { 
+        padding: 15px 0 25px; line-height: 1.5;
+        word-break: keep-all;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+
+    /* article4 */
+    .article4 li {
+        float:left; width:49%;
+        margin-right:2%;
+        margin-bottom:20px; 
+        border:1px solid #999;
+        text-align:center;
+    }
+    .article4 li:nth-child(even) { margin-right:0% }
+    .article4 li:nth-child(odd) { margin-right:2% }
+
+    /* article5 */
+    .article5 .row > div { width:100%; float:left; }
+    .article5 .row > div.cs_board { padding-right:20px; padding-left:20px;}
+    .article5 .row > div.cs_center { 
+        border-left:0px solid #ddd;
+        border-right:0px solid #ddd; padding:30px 20px; 
+    }
+    .article5 .row div.cs_movie { padding-right:20px; padding-left:20px; }
+    
+    
+    #footer .info span { padding:5px 20px; display: block;}
+}
+/* 1024 마지막 괄호 */
+
+
+@media screen and (max-width:500px) {
+
+    /* article1 */
+    .article1 .plpa {
+        position:absolute; bottom:44px; left:50%; 
+        /* margin-left:180px;  */
+        transform:translate(110px);
+        color:#fff; border:none;
+        background:none; font-size:20px;
+    }
+    .article1 .slide-group .slick-dots li button {
+        width:50px; height:10px; background:#fff;
+        border:none; color:transparent; vertical-align:middle;
+    }
+
+
+    /* article2 */
+    .article2 li { 
+        height:400px; float:left; width:49%; 
+        margin-right:2%; margin-top: 2%;
+        color:#fff;
+        position:relative; }
+    .article2 li > div > a {  
+        display: block; padding: 10px 0px;
+        text-align: center;
+        border: 1px solid rgba(255,255,255,0.5); 
+        font-size: 11px; font-weight: 600 !important;
+    }
+
+
+
+     /* article4 */
+     .article4 li {
+        float:left; width:100%;
+        margin-right:0%;
+        margin-bottom:20px; 
+        border:1px solid #999;
+        text-align:center;
+    }
+    .article4 li:nth-child(even) { margin-right:0% }
+    .article4 li:nth-child(odd) { margin-right:0% }
 
 }
-
-
-
