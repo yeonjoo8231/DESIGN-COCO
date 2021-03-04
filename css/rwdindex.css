@@ -1,10 +1,6 @@
 @media screen and (max-width:1024px) {
 
 
-    #header h1 img {
-        width: 200px;
-    }
-
     /* 검색창 */
     #header .search {
         position:absolute; 
@@ -34,10 +30,11 @@
     #header h1 { /* float:left;  */ padding:25px 0 }
 
     #header #nav {  /* float:right; */ z-index:99999;
-    position:absolute; top:100%; transform:translateY(0%);
-    right:0; font-size:18px; color:#1e1e1e; background:#fff; 
-    display:none }
-    #header #nav.on { display:block }
+    position:fixed; top:123px; transform:translateY(0%);
+    right:-170px; font-size:18px; color:#1e1e1e; background:#fff; 
+    opacity: 0; bottom: 0; width: 170px;  overflow-y: auto;}
+    #header.on #nav { top: 96px;}
+    /* #header #nav.on { right: 0; opacity: 1;} */
 
     #header #nav .depth1 > li { float:none; position:relative; }
 
@@ -47,112 +44,5 @@
         display:none; }
 
 
-
-    /* .article2구역 */
-    .article2 li { 
-        height:520px; float:left; width:49%; 
-        margin-right:2%; margin-top: 2%;
-        color:#fff;
-        position:relative; }
-    .article2 li:nth-child(2) { 
-        background:url(../img/what2.jpg) no-repeat center;
-        background-size:cover; 
-        margin-right:0%;
-    }
-
-
-    /* article3 */
-    .article3 {position: relative;}
-    .article3 .row {
-        max-width: 1200px; margin: 0 auto; padding: 0 10px;
-        position: absolute; top: 50%; 
-        transform: translateY(-50%);
-        left: 0; right: 0; text-align: center;
-    }
-    #section .article3 h2 { 
-        color: #000; font-size: 30px; line-height: 42px; 
-        font-weight: 700;
-        padding:0px 0 10px; text-align:center; 
-        word-break: keep-all; 
-        /* 단어잘림 허용안함 */
-        /* word-wrap: normal; 영어*/
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-    .article3 p { 
-        padding: 15px 0 25px; line-height: 1.5;
-        word-break: keep-all;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-
-
-    /* article4 */
-    .article4 li {
-        float:left; width:49%;
-        margin-right:2%;
-        margin-bottom:20px; 
-        border:1px solid #999;
-        text-align:center;
-    }
-    .article4 li:nth-child(even) { margin-right:0% }
-    .article4 li:nth-child(odd) { margin-right:2% }
-
-    /* article5 */
-    .article5 .row > div { width:100%; float:left; }
-    .article5 .row > div.cs_board { padding-right:20px; padding-left:20px;}
-    .article5 .row > div.cs_center { 
-        border-left:0px solid #ddd;
-        border-right:0px solid #ddd; padding:30px 20px; 
-    }
-    .article5 .row div.cs_movie { padding-right:20px; padding-left:20px; }
-    
-    
-    #footer .info span { padding:5px 20px; display: block;}
-}
-/* 1024 마지막 괄호 */
-
-
-@media screen and (max-width:500px) {
-
-    /* article1 */
-    .article1 .plpa {
-        position:absolute; bottom:44px; left:50%; 
-        /* margin-left:180px;  */
-        transform:translate(110px);
-        color:#fff; border:none;
-        background:none; font-size:20px;
-    }
-    .article1 .slide-group .slick-dots li button {
-        width:50px; height:10px; background:#fff;
-        border:none; color:transparent; vertical-align:middle;
-    }
-
-
-    /* article2 */
-    .article2 li { 
-        height:400px; float:left; width:49%; 
-        margin-right:2%; margin-top: 2%;
-        color:#fff;
-        position:relative; }
-    .article2 li > div > a {  
-        display: block; padding: 10px 0px;
-        text-align: center;
-        border: 1px solid rgba(255,255,255,0.5); 
-        font-size: 11px; font-weight: 600 !important;
-    }
-
-
-
-     /* article4 */
-     .article4 li {
-        float:left; width:100%;
-        margin-right:0%;
-        margin-bottom:20px; 
-        border:1px solid #999;
-        text-align:center;
-    }
-    .article4 li:nth-child(even) { margin-right:0% }
-    .article4 li:nth-child(odd) { margin-right:0% }
-
+        
 }
